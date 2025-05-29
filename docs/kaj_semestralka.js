@@ -369,18 +369,32 @@ function saveState() {
     }, 1000);
   }
 
-  //if nickname doesnt have pet he needs to choose one...
+  //if nickname doesnt have pet he needs to choose one
   function loadOrChoosePet(){ 
   let savedPet = localStorage.getItem(`petEmoji_${nickname}`);
   if (!savedPet) {
     const table =document.getElementById("pet-selector");
 
     document.getElementById("pet-selected").style.display = "none";
+
+    //responsibility, on phone it looks mutch better with display block
+
+    if(window.innerWidth>600){ 
     table.style.display = "inline-block";
 
-    if(!document.getElementById("instruction-lable")){
+    } else{
+      table.style.display = "inline-block";
+      const tds = document.getElementsByTagName('td');
+      for (let td of tds) {
+        td.style.display = "block";
+        td.style.padding = 0;
+      }
+      document.body.style.overflow = "auto";
+    }
+
+    if(!document.getElementById("instruction-label")){
     const label = document.createElement('div');
-    label.id ="instruction-lable";
+    label.id ="instruction-label";
     label.appendChild(document.createTextNode(`Choose yout pet, ${nickname} 🐾`));
     document.body.insertBefore(label, table);
     }
@@ -407,8 +421,9 @@ function selectPet(emoji) {
   pet.style.display = "inline-block";
   document.getElementById("pet-selector").style.display = "none";
   document.getElementById("pet-selected").style.display = "block";
-  document.getElementById("instruction-lable").style.display = "none";
+  document.getElementById("instruction-label").style.display = "none";
 
+  document.body.style.overflow = "hidden";
   loadState(); 
 }
 
@@ -416,7 +431,6 @@ function selectPet(emoji) {
 function createSVGFood(type) {
   const svgNS = "http://www.w3.org/2000/svg";
   const food = document.createElementNS(svgNS, "g");
-  let shape;
 
   if (type === "mrkev") {
 

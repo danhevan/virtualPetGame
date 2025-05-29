@@ -70,6 +70,10 @@ body {
   padding: 1rem;
 }
 
+.pet-select-media{
+  display:block;
+}
+
 
 
 .pet-select{
@@ -88,6 +92,7 @@ body {
   .pet-btn::after {
     content: "";
   }
+
 }
 
 
