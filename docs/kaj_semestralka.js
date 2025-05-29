@@ -407,6 +407,7 @@ function selectPet(emoji) {
   pet.style.display = "inline-block";
   document.getElementById("pet-selector").style.display = "none";
   document.getElementById("pet-selected").style.display = "block";
+  document.getElementById("instruction-lable").style.display = "none";
 
   loadState(); 
 }
