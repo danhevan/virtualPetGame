@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title >Your virtual pet 🐾</title>
+  <link rel="stylesheet" href="kaj_semstralka.css" />
+</head>
+<body>
+  <h1 id="title">Virtual Pet 🐾</h1>
+
+
+  <table id="pet-selector">
+    <tr>
+      <td><button onclick="selectPet('🐶')" class="pet-select">🐶</button></td>
+      <td><button onclick="selectPet('🐱')" class="pet-select">🐱</button></td>
+      <td><button onclick="selectPet('🐰')" class="pet-select"> 🐰</button></td>
+    </tr>
+  </table>
+  
+
+  <div id="pet-selected">
+    <div id="pet"></div>
+    <p id="status"></p>
+    <button onclick="feedPet()" data-label="Krmení" class="pet-btn">🍖</button>
+    <p id="hungerLevel" class = "values"></p>
+    <button onclick="playPet()" data-label="Hrát si" class="pet-btn">🎾</button>
+    <p id="happinessLevel" class = "values"></p>
+    <button onclick="sleepPet()"  data-label="Spát" class="pet-btn">😴</button>
+    <p id="sleepLevel" class = "values"></p>
+  </div>
+
+  <div id="sleep-dim"></div>
+
+  <svg id="game-area" viewBox="0 0 800 500"></svg>
+
+
+  <script src="kaj_semestralka.js"></script>
+</body>
+</html>
