@@ -17,8 +17,36 @@ body {
   
 
   #index-center{
+    position: relative;
+    overflow: hidden;
+
+    align-items: center;
+    justify-content: center;
+
     padding-top: 20vh;
   }
+
+  .floating-unicorn {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 100px;
+    animation: moveRight 10s linear;
+    pointer-events: none;
+    z-index: -9999;
+
+  }
+
+  @keyframes moveRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(120vw);
+    }
+  }
+
+
 /* styl pro krmící minihru */
 .pet-game {
   position: absolute;
@@ -100,6 +128,10 @@ body {
     content: "";
   }
 
+  .floating-unicorn{
+    animation: moveRight 5s linear;
+  }
+
 }
 
 
@@ -127,3 +159,4 @@ body {
   display: none; 
   pointer-events: none; 
 }
+

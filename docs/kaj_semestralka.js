@@ -24,7 +24,6 @@ let nickname = localStorage.getItem("nickname") || "nobody";
 
 let isPetting =false;
 const form = document.getElementById("form");
-const log = document.getElementById("log");
 
 const gameArea = document.getElementById('game-area');
 
@@ -38,14 +37,18 @@ let feedingGameRunning = false;
 let feedingGameInterval;
 
 let sleepInterval;
-
-
 let isOnline = true;
 
 const offlineMessage = document.createElement('div');
 offlineMessage.id = 'offline-message';
 document.body.appendChild(offlineMessage);
 
+
+const indexCenter = document.getElementById("index-center");
+
+let unicornInterval;
+
+let unicornsRunning = false;
 
 //starts feeding game, reaction for button
 function feedPet() {
@@ -199,7 +202,6 @@ function saveState() {
         }
         updateDisplay();
       pettingStatus();
-      console.log("Mazlíček hlazen na:", x, y);
       }
     }
   
@@ -258,7 +260,6 @@ function saveState() {
 
         clearInterval(fall);
         food.remove();
-        console.log("CHYCENO!"); 
         hungerLevel+= fallingSeed/2;
            
         if(hungerLevel>=100){
@@ -665,3 +666,35 @@ window.addEventListener('online', handleNetworkChange);
 window.addEventListener('offline', handleNetworkChange);
 handleNetworkChange();
 
+
+// making unicorns walk in backgrounf of index page
+function createUnicorn(){
+    const gif = document.createElement("img");
+    gif.src = "unicorn.gif"; 
+    gif.classList.add("floating-unicorn");
+
+    const topPercent = Math.floor(Math.random() * 90);
+    gif.style.top = `${topPercent}vh`;
+
+    const size = 100 + Math.random() * 80;
+    gif.style.width = `${size}px`;
+
+    gif.addEventListener("animationend", () => {
+      gif.remove();
+    });
+
+    document.body.appendChild(gif);
+}
+
+
+if(indexCenter&&!unicornsRunning){
+  let unicornDelay;
+  if(window.innerWidth<=600)unicornDelay = 1500;
+  else unicornDelay = 2500;
+
+  unicornInterval= setInterval(createUnicorn, unicornDelay);
+  unicornsRunning = true;
+} else if(!indexCenter){
+  clearInterval(unicornInterval);
+  unicornsRunning=false;
+}
