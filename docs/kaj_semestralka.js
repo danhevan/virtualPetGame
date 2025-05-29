@@ -329,11 +329,11 @@ function saveState() {
       if(x > (gameAreaRect.left + petWidthHalfed) && x<(gameAreaRect.right-petWidthHalfed)){
       pet.style.left = `${x}px`;
       }
-    });
+    }, {passive:false});
   }
 
 
-//function for going to sleep
+//function for going to sleep TODO add lullaby
   function sleep(){
     document.getElementById("sleep-dim").style.display = "block";
     sleepInterval = setInterval(() => {

@@ -3,6 +3,9 @@ body {
     text-align: center;
     background-color: #f2f2f2;
     overflow: hidden;
+
+  
+    
   }
   .values{
     display: inline-block;
@@ -12,6 +15,11 @@ body {
     overflow: hidden;
   }
   
+
+  #index-center{
+    padding-top: 20vh;
+
+  }
 /* styl pro krmící minihru */
 .pet-game {
   position: absolute;
