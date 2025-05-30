@@ -3,18 +3,20 @@ body {
     text-align: center;
     background-color: #f2f2f2;
     overflow: hidden;
-
-  
     
   }
+
+  /*  styles for % */
   .values{
     display: inline-block;
 
   }
+
   html{
     overflow: hidden;
   }
   
+  /*  styles for index page, content is in 1/3 of the page */
 
   #index-center{
     position: relative;
@@ -25,6 +27,9 @@ body {
 
     padding-top: 20vh;
   }
+
+  /* background for index page, walking unicorns */
+
 
   .floating-unicorn {
     position: absolute;
@@ -37,6 +42,9 @@ body {
 
   }
 
+    /* animation for walking unicorns */
+
+
   @keyframes moveRight {
     from {
       transform: translateX(0);
@@ -47,7 +55,7 @@ body {
   }
 
 
-/* styl pro krmící minihru */
+/* pet styles for feeding game */
 .pet-game {
   position: absolute;
   left: 50%;
@@ -58,7 +66,7 @@ body {
 
 
 
-/* výchozí styl mazlíčka (prosím nikdo se neptejte proč pletu erm a px... byl to jiný den)*/
+/* default styles for pet (not in feeding game)*/
 .pet-default {
   font-size: 6rem;
   margin: 1rem 0;
@@ -91,7 +99,7 @@ body {
     width: 98vw;
   }
 
-  /* tabulka pro výběr vlastního mazlíčka*/
+  /* table for choosing pet*/
 
 
 #pet-selector{
@@ -104,11 +112,6 @@ body {
   text-align: center;
   padding: 1rem;
 }
-
-.pet-select-media{
-  display:block;
-}
-
 
 
 .pet-select{

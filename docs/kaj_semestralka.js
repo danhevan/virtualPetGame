@@ -2,7 +2,7 @@ const pet = document.getElementById("pet");
 const status = document.getElementById("status");
 let title = document.getElementById("title");
 
-//for adding more pets in future easly
+//for making adding more pets in future easier
 const petFoods = {
   '🐶': 'maso',
   '🐱': 'ryba',
@@ -37,6 +37,10 @@ let feedingGameRunning = false;
 let feedingGameInterval;
 
 let sleepInterval;
+
+const lullaby = new Audio("lullaby.mp3");
+lullaby.volume = 0.2;
+
 let isOnline = true;
 
 const offlineMessage = document.createElement('div');
@@ -49,6 +53,9 @@ const indexCenter = document.getElementById("index-center");
 let unicornInterval;
 
 let unicornsRunning = false;
+
+
+
 
 //starts feeding game, reaction for button
 function feedPet() {
@@ -121,7 +128,7 @@ function saveState() {
     slowLoweringOfStats();
     loadState();
   
-    // listenery pro hlazení:
+    // listeners for petting:
     document.addEventListener("mousedown", () => {
       isPetting = true;
     });
@@ -234,7 +241,7 @@ function saveState() {
   }
 
 
-  //feeding game (cos it was starting to be a little boring) without svg in case svg version is not wotking... (I had some issues with it)
+  //feeding game without svg just in case svg version is not wotking
 
   function createFood() {
     const food = document.createElement("div");
@@ -282,7 +289,6 @@ function saveState() {
 //starts feeding game
   function startGame() {
     feedingGameRunning = true;
-    //feedingGameInterval = setInterval(createFood, 1000);
 
     startGameWithSVG();
     movePet();
@@ -334,8 +340,13 @@ function saveState() {
   }
 
 
-//function for going to sleep TODO add lullaby
+//function for going to sleep and plays lullaby
   function sleep(){
+    lullaby.play();
+    lullaby.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    }, false);
     document.getElementById("sleep-dim").style.display = "block";
     sleepInterval = setInterval(() => {
       sleepLevel++;
@@ -347,6 +358,8 @@ function saveState() {
 
   // function to stop sleeping
   function wakeUp(){
+    lullaby.pause();
+    lullaby.currentTime = 0;
     document.getElementById("sleep-dim").style.display = "none";
     clearInterval(sleepInterval);
 
@@ -686,7 +699,7 @@ function createUnicorn(){
     document.body.appendChild(gif);
 }
 
-
+//creating unicorn only if I am on inedx page
 if(indexCenter&&!unicornsRunning){
   let unicornDelay;
   if(window.innerWidth<=600)unicornDelay = 1500;
