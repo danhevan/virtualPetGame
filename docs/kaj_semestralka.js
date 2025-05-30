@@ -639,9 +639,11 @@ function animateFood(food) {
 //start game, making new food every second
 function startGameWithSVG() {
   document.getElementById("game-area").style.display = "block";
-  feedingGameInterval = setInterval(() => {
+  feedingGameInterval = setInterval(() => { 
+    if(document.hasFocus()){
     const food = createSVGFood(typeOfPetFood);
     animateFood(food);
+    }
   }, 1000);
 }
 
@@ -682,6 +684,7 @@ handleNetworkChange();
 
 // making unicorns walk in backgrounf of index page
 function createUnicorn(){
+  if(document.hasFocus()){   
     const gif = document.createElement("img");
     gif.src = "unicorn.gif"; 
     gif.classList.add("floating-unicorn");
@@ -697,6 +700,7 @@ function createUnicorn(){
     });
 
     document.body.appendChild(gif);
+  }
 }
 
 //creating unicorn only if I am on inedx page
@@ -704,7 +708,6 @@ if(indexCenter&&!unicornsRunning){
   let unicornDelay;
   if(window.innerWidth<=600)unicornDelay = 1500;
   else unicornDelay = 2500;
-
   unicornInterval= setInterval(createUnicorn, unicornDelay);
   unicornsRunning = true;
 } else if(!indexCenter){
