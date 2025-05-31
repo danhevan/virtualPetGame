@@ -13,18 +13,6 @@ Spaní: Spustí se ukolébavka a mazlíček regeneruje energii
 
 Ukládání stavu: Stav mazlíčka se ukládá do localStorage při změně statů
 
-##Struktura kódu
-Hlavní HTML prvky
-### pet – grafické zobrazení zvířátka (emoji)
-
-### status – zobrazuje aktuální stav/pokyny pro uživatele
-
-### game-area – herní plocha pro krmení
-
-### form – formulář pro zadání přezdívky
-
-### pet-selector – výběr mazlíčka
-
 
 ## Herní Mechaniky
 
