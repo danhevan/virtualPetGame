@@ -54,6 +54,9 @@ let unicornInterval;
 
 let unicornsRunning = false;
 
+let unicornDelay = 2000;
+
+let lostFocus =  false;
 
 
 
@@ -640,10 +643,8 @@ function animateFood(food) {
 function startGameWithSVG() {
   document.getElementById("game-area").style.display = "block";
   feedingGameInterval = setInterval(() => { 
-    if(document.hasFocus()){
     const food = createSVGFood(typeOfPetFood);
     animateFood(food);
-    }
   }, 1000);
 }
 
@@ -684,7 +685,6 @@ handleNetworkChange();
 
 // making unicorns walk in backgrounf of index page
 function createUnicorn(){
-  if(document.hasFocus()){   
     const gif = document.createElement("img");
     gif.src = "unicorn.gif"; 
     gif.classList.add("floating-unicorn");
@@ -700,12 +700,11 @@ function createUnicorn(){
     });
 
     document.body.appendChild(gif);
-  }
+  
 }
 
 //creating unicorn only if I am on inedx page
 if(indexCenter&&!unicornsRunning){
-  let unicornDelay;
   if(window.innerWidth<=600)unicornDelay = 1500;
   else unicornDelay = 2500;
   unicornInterval= setInterval(createUnicorn, unicornDelay);
@@ -714,3 +713,28 @@ if(indexCenter&&!unicornsRunning){
   clearInterval(unicornInterval);
   unicornsRunning=false;
 }
+
+// focus on page, so animations can not glitch
+function noFocus(){
+  clearInterval(unicornInterval);
+  clearInterval(feedingGameInterval);
+  lostFocus = true;
+}
+function focusIsBack(){
+  if(lostFocus){ 
+  if (unicornsRunning){
+    unicornInterval= setInterval(createUnicorn, unicornDelay);
+  }
+  if(feedingGameRunning){
+    feedingGameInterval = setInterval(() => { 
+      const food = createSVGFood(typeOfPetFood);
+      animateFood(food);
+    }, 1000);
+  }
+
+  lostFocus = false;
+}
+}
+
+window.addEventListener("blur", noFocus);
+window.addEventListener("focus", focusIsBack);
