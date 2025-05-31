@@ -6,7 +6,7 @@ body {
     
   }
 
-  /*  styles for % */
+  /*  styles for stat values */
   .values{
     display: inline-block;
 
@@ -29,8 +29,6 @@ body {
   }
 
   /* background for index page, walking unicorns */
-
-
   .floating-unicorn {
     position: absolute;
     top: 0;
@@ -43,8 +41,6 @@ body {
   }
 
     /* animation for walking unicorns */
-
-
   @keyframes moveRight {
     from {
       transform: translateX(0);
@@ -90,7 +86,7 @@ body {
     font-size: 30px;
     top: 0;
   }
-
+/* visible only when game is played */
   #game-area{
     position: fixed;
     display:none;
@@ -100,8 +96,6 @@ body {
   }
 
   /* table for choosing pet*/
-
-
 #pet-selector{
   display: none;
   margin: 0 auto;
@@ -113,13 +107,14 @@ body {
   padding: 1rem;
 }
 
-
+  /* pet in table style*/
 .pet-select{
   font-size: 6rem;
   text-align: center;
 
 }
 
+  /* on phones there are only emojis without text*/
 
 .pet-btn::after {
   content: attr(data-label); 
@@ -131,6 +126,7 @@ body {
     content: "";
   }
 
+  /* "faster" unicorns, so they look same speed in phones */
   .floating-unicorn{
     animation: moveRight 5s linear;
   }
@@ -151,6 +147,7 @@ body {
   box-shadow: 0 0 0.5em navy;
 }
 
+/* black area in the front for sleeping*/
 #sleep-dim {
   position: fixed;
   top: 0;

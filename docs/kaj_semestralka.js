@@ -238,9 +238,11 @@ function saveState() {
   }
   function logSubmit(event) {
     event.preventDefault();
+    if(isOnline){ 
     nickname = document.getElementById("nickname").value;
     localStorage.setItem("nickname", nickname);
     window.location.href = "kaj_semestralka.html";
+    }
   }
 
 
