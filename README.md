@@ -2,7 +2,7 @@
 
 Tato webová aplikace umožňuje uživatelům vybrat si svého mazlíčka, starat se o něj, krmit ho, hladit a ukládat ke spánku. Úroveň hladu, štěstí a spánku se průběžně mění podle aktivity uživatele. Aplikace využívá localStorage pro uchování stavu již existujících mazlíčků.
 
- ##Funkce
+ ## Funkce
 Výběr mazlíčka: 🐶 pes, 🐱 kočka, 🐰 králík
 
 Krmení: Hra s padajícím jídlem ovládaná šipkami nebo dotykem prstu
@@ -15,26 +15,18 @@ Ukládání stavu: Stav mazlíčka se ukládá do localStorage při změně stat
 
 ##Struktura kódu
 Hlavní HTML prvky
-#pet – grafické zobrazení zvířátka (emoji)
+### pet – grafické zobrazení zvířátka (emoji)
 
-#status – zobrazuje aktuální stav/pokyny pro uživatele
+### status – zobrazuje aktuální stav/pokyny pro uživatele
 
-#game-area – herní plocha pro krmení
+### game-area – herní plocha pro krmení
 
-#form – formulář pro zadání přezdívky
+### form – formulář pro zadání přezdívky
 
-#pet-selector – výběr mazlíčka
+### pet-selector – výběr mazlíčka
 
-#sleep-dim – překryvná vrstva při spánku
 
-Lokální úložiště (localStorage)
-nickname – přezdívka uživatele
-
-petEmoji_<nickname> – vybraný mazlíček
-
-petState_<nickname> – objekt se statistikami a časem posledního uložení
-
-##Herní Mechaniky
+## Herní Mechaniky
 
 Stavy mazlíčka
 default: čekání na aktivitu
@@ -57,7 +49,7 @@ Dotyk/pohyb myši: mazlení
 
 Tlačítka: Krmení, mazlení, spánek
 
-##Zvuky
+## Zvuky
 každý mazlíček má vlastní zvuk  pro jezení a všem se spustí ukolébavka při ukožení ku spánku.
 
 
